@@ -36,6 +36,7 @@
 * webpack.config.js `webpack 配置文件`
 * package.json  `项目配置文件`
 ```
+//webpack.config.js
 module.exports = {
 	entry: __dirname + "/src/js/hello.js",
 	output:{
