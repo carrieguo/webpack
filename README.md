@@ -46,7 +46,24 @@ module.exports = {
 }
 ```
 这样只需要敲入`webpack`就会自动打包
-我们也可以修改配置文件名称为`webpack.dev.config.js`,运行命令时通过config 命令指定配置文件 `webpack --config webpack.dev.config.js`
+我们也可以修改配置文件名称为`webpack.dev.config.js`,运行命令时通过config 命令指定配置文件 `webpack --config webpack.dev.config.js`。
+说明一下entry参数，
+* entry 参数为数组
+```
+entry: ['./entry1','./entry2'] //将两个单独的文件（不存在引用）打包为一个文件
+```
+* entry 参数为对象
+```
+entry:{
+	page1: './page1',
+	page2: ['./entry1','./entry2']
+}，
+output:{
+	filename: '[name].js',         //参数为对象时，使用[id]	[name] [hash] [chunkhash]，可以生成多文件	
+kepath: __dirname + '/build'
+}
+//writes to disk: ./build/page1.js, ./build/search.js
+```
 ### 在package.json中配置运行参数
 自定义脚本
 ```
