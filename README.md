@@ -96,3 +96,47 @@ module.exports = {
     ]
 }
 ```
+### webpack.config.js 中传参，模板文件中引用
+1. 配置webpack.config.js文件
+```
+var webpack =require('html-webpack-plugin'); //声明插件
+module.exports = {
+    entry: {
+        wold: './src/js/wold.js',
+        main: './src/js/main.js'
+    },
+    output: {
+        path: __dirname + '/dist',
+        filename: 'js/[name]-[chunkhash].js'   //将打包后的js文件生成到js目录下
+    },
+    plugins:[
+        new webpack({
+            filename: 'index.html',  //文件名模板
+            template: 'index.html',         //生成的html文件模板
+            inject: false,  //将引用的标签放到head标签中or放在body标签中,禁用
+            title: 'changed title!',	//传参
+            date: new Date(),		//传参
+	    minify: {			//压缩，删掉注释和空格
+                removeComments: true,	
+                collapseWhitespace: true
+            }
+        })
+    ]
+}
+```
+2. 编辑index.html模板
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script> //将打包后的main文件放到head标签中
+</head>
+<body>
+    <script src="../hello.bundle.js"></script>
+    <script src="<%= htmlWebpackPlugin.files.chunks.wold.entry %>"></script> //将打包后的wold文件放到body标签中
+    <%= htmlWebpackPlugin.options.date %>
+</body>
+</html>
+```
