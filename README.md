@@ -74,7 +74,8 @@ kepath: __dirname + '/build'
 ```
 运行`npm run webpack`
 
-## 使用插件在html文件中自动引用打包后的文件
+## 使用插件 html-webpack-plugin
+### 在html文件中自动引用打包后的文件
 使用参数打包文件之后生成的文件需要一个个手动在html文件中添加引用，太麻烦了，我们可以使用插件来解决。
 1. 安装插件 `npm install html-webpack-plugin`
 2. 配置webpack.config.js文件
