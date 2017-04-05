@@ -72,4 +72,26 @@ kepath: __dirname + '/build'
 	"webpacka": "webpack --config webpack.config.js --progress --colors"
   },
 ```
-运行`npm run webpacka`
+运行`npm run webpack`
+
+## 使用插件在html文件中自动引用打包后的文件
+使用参数打包文件之后生成的文件需要一个个手动在html文件中添加引用，太麻烦了，我们可以使用插件来解决。
+1. 安装插件 `npm install html-webpack-plugin`
+2. 配置webpack.config.js文件
+```
+var webpack =require('html-webpack-plugin'); //声明插件
+module.exports = {
+    entry: ['./src/js/wold.js', './src/js/main.js'],
+    output: {
+        path: __dirname + '/dist',  
+        filename: 'js/[name]-[chunkhash].js'   //将打包后的js文件生成到js目录下
+    },
+    plugins:[
+        new webpack({
+            filename: 'index-[hash].html',  //文件名格式
+            template: 'index.html',         //会依照根目录下的index.html文件为模板，在/dist目录下生成.html文件
+            inject: 'body'  //将引用的标签放到head标签中or放在body标签中
+        })
+    ]
+}
+```
