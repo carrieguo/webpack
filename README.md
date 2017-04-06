@@ -140,3 +140,34 @@ module.exports = {
 </body>
 </html>
 ```
+### 生成多个html文件
+```
+var webpack =require('html-webpack-plugin');
+module.exports = {
+    entry: {
+        wold: './src/js/wold.js',
+        main: './src/js/main.js',
+        hello: './src/js/hello.js'
+    },
+    output: {
+        path: __dirname + '/dist',
+        filename: 'js/[name]-[chunkhash].js'
+    },
+    plugins:[
+        new webpack({
+            filename: 'wold.html',      //生成wold.html
+            template: 'index.html',
+            inject: 'body',
+            title: 'wold',
+            chunks: ['wold','hello']    //引入wold和hello的js文件
+        }),
+        new webpack({
+            filename: 'main.html',      //生成main.html
+            template: 'index.html',
+            inject: 'body',
+            title: 'main',
+            excludeChunks: ['wold']     //引入除wold之外的js文件
+        })
+    ]
+}
+```
