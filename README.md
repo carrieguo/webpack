@@ -13,7 +13,7 @@
 ### 打包css文件
 假如分别有一个js文件和一个css文件
 1. 由于webpack不支持css类型，需要借助loader。我们需要在项目目录下安装loader `npm install css-loader style-loader`
-2. 在hello.js文件中，引入css并指定相应的loader `require('style-loader!css-loader!./style.css');//loader的顺序貌似不能改`
+2. 在hello.js文件中，引入css并指定相应的loader `require('style-loader!css-loader!./style.css');//loader的顺序不能改，从右向左，先css-loader,后通过style-loader将css嵌入到html中`
 3. 打包 `webpack hello.js hello.bundle.js`
 4. 新建一个index.html 文件，只需要引用 `hello.bundle.js`文件即可查看效果。
 * css-loader 作用是使webpack能处理css文件
