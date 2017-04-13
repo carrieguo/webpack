@@ -6,7 +6,7 @@
 
   --components --layer (layer.html,layer.js,layer.less) `组件`
   
-  ----app.js 入口js文件
+  --app.js 入口js文件
 * index.html
 * webpack.config.js webpack 配置文件
 * package.json  项目配置文件
