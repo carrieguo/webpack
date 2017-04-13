@@ -63,6 +63,6 @@ module.exports = {
 }
 ```
 
-## 关于[postcss-loader](https://www.npmjs.com/package/postcss-loader) 
+## 关于 [postcss-loader](https://www.npmjs.com/package/postcss-loader) 
 * autoprefixer 是其中的一个插件，用于给某些css加兼容性前缀，
 * ?importLoaders=1 作用是，当我们在css文件中引用其他css文件，使postcss-loader也作用于引入的css文件。
