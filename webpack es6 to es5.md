@@ -15,7 +15,7 @@ babel能将es6语法转为浏览器识别的es5
 2. 安装插件babel Latest preset `npm install --save-dev babel-preset-latest`
 Latest Presets 能通过参数的设置识别es7,es6，es5语法,而不必单独设置
 3. webpack.config.js文件
-```
+```javascript
 var webpack =require('html-webpack-plugin');
 var path = require('path');
 module.exports = {
