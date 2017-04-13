@@ -1,4 +1,4 @@
-## es6 to es5
+# es6 to es5
 项目目录
 * dist  `打包后的文件路径`
 * node_modules  `包路径`
