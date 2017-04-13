@@ -17,7 +17,7 @@
 3. 安装postcss-loader `npm install postcss-loader --save-dev`
    postcss-loader 是一个后处理我们的css，譬如加兼容性写法的前缀
 3. 配置`webpack.config.js`
-```
+```javascript
 var webpack =require('html-webpack-plugin');
 var path = require('path');
 module.exports = {
