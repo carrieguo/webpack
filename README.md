@@ -35,7 +35,7 @@
 * index.html
 * webpack.config.js `webpack 配置文件`
 * package.json  `项目配置文件`
-```
+```javascript
 //webpack.config.js
 module.exports = {
 	entry: __dirname + "/src/js/hello.js",
@@ -53,7 +53,7 @@ module.exports = {
 entry: ['./entry1','./entry2'] //将两个单独的文件（不存在引用）打包为一个文件
 ```
 * entry 参数为对象
-```
+```javascript
 entry:{
 	page1: './page1',
 	page2: ['./entry1','./entry2']
@@ -66,7 +66,7 @@ kepath: __dirname + '/build'
 ```
 ### 在package.json中配置运行参数
 自定义脚本
-```
+```javascript
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
 	"webpacka": "webpack --config webpack.config.js --progress --colors"
@@ -79,7 +79,7 @@ kepath: __dirname + '/build'
 使用参数打包文件之后生成的文件需要一个个手动在html文件中添加引用，太麻烦了，我们可以使用插件来解决。
 1. 安装插件 `npm install html-webpack-plugin`
 2. 配置webpack.config.js文件
-```
+```javascript
 var webpack =require('html-webpack-plugin'); //声明插件
 module.exports = {
     entry: ['./src/js/wold.js', './src/js/main.js'],
@@ -98,7 +98,7 @@ module.exports = {
 ```
 ### webpack.config.js 中传参，模板文件中引用
 1. 配置webpack.config.js文件
-```
+```javascript
 var webpack =require('html-webpack-plugin'); //声明插件
 module.exports = {
     entry: {
@@ -125,7 +125,7 @@ module.exports = {
 }
 ```
 2. 编辑index.html模板
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,7 +141,7 @@ module.exports = {
 </html>
 ```
 ### 生成多个html文件
-```
+```javascript
 var webpack =require('html-webpack-plugin');
 module.exports = {
     entry: {
